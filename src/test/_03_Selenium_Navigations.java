@@ -2,16 +2,14 @@ package test;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utilities.Driver;
 
 import java.util.concurrent.TimeUnit;
 
 public class _03_Selenium_Navigations {
     public static void main(String[] args) throws InterruptedException {
         //1. Set up Driver
-        System.setProperty("webdriver.chrome.driver", "chromedriver");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        WebDriver driver = Driver.getDriver();
 
         //2. Validation
         driver.get("https://www.techglobalschool.com");
@@ -37,6 +35,6 @@ public class _03_Selenium_Navigations {
         else System.out.println("URL validation test FAILED!");
 
         //3. Quit Driver
-        driver.quit();
+        Driver.quitDriver();
     }
 }
